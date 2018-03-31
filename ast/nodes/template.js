@@ -1,5 +1,9 @@
-class TemplateNode {
-  constructor(line) {
+const { BaseNode } = require("./base")
+const { Line } = require("../../line")
+
+class TemplateNode extends BaseNode {
+  constructor(parent, line) {
+    super(parent)
     this.line = line
   }
 
@@ -8,16 +12,11 @@ class TemplateNode {
   }
 
   get syntax() {
-    if (!this.syntax_) {
-      const { line } = this
-      this.syntax_ = {}
-    }
-
-    return this.syntax_
+    return {}
   }
 
   emit() {
-    return ``
+    return [Line(``)]
   }
 }
 

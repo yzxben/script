@@ -1,5 +1,9 @@
-class LiteralNode {
-  constructor(line) {
+const { BaseNode } = require("./base")
+const { Line } = require("../../line")
+
+class LiteralNode extends BaseNode {
+  constructor(parent, line) {
+    super(parent)
     this.line = line
   }
 
@@ -8,12 +12,7 @@ class LiteralNode {
   }
 
   get syntax() {
-    if (!this.syntax_) {
-      const { line } = this
-      this.syntax_ = {}
-    }
-
-    return this.syntax_
+    return {}
   }
 
   emit() {

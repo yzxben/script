@@ -5,7 +5,7 @@ global.nodes = nodes
 Object.assign(global, nodes)
 
 function build(lines) {
-  return new Program(lines)
+  return new Program(null, lines)
 }
 
 module.exports = { build }

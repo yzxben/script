@@ -1,46 +1,5 @@
 const { array_equal } = require("./array equal")
-const { tokenize } = require("./tokenizer")
-
-class Line {
-  constructor(line, children = []) {
-    this.line = line
-    this.children = children
-  }
-
-  get raw() {
-    return this.line
-  }
-
-  hasChildren() {
-    return this.children.length > 0
-  }
-
-  equals(other) {
-    if (!other instanceof Line_) {
-      return false
-    }
-
-    if (other.line !== this.line) {
-      return false
-    }
-
-    return array_equal(this.children, other.children)
-  }
-
-  get tokens() {
-    if (!this.tokens_) {
-      this.tokens_ = tokenize(this.line)
-    }
-    return this.tokens_
-  }
-
-  toJSON() {
-    return {
-      line: this.line,
-      children: this.children.map(line => line.toJSON()),
-    }
-  }
-}
+const { Line } = require("../line")
 
 function build(code) {
   const stack = [{ root: true, children: [] }]
@@ -64,7 +23,7 @@ function build(code) {
     while (indent > currentIndent()) {
       stack.push(lastChild())
       if (indent != currentIndent()) {
-        addChild(new Line("", []))
+        addChild(Line("", []))
       }
     }
 
@@ -72,7 +31,7 @@ function build(code) {
       stack.pop()
     }
 
-    const object = new Line(line, [])
+    const object = Line(line, [])
     addChild(object)
   }
   return stack[0].children
