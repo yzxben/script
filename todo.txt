@@ -1,0 +1,227 @@
+- Variables
+  - "column width equals ten"
+
+column_width = 10
+
+let column_width = 10;
+
+
+
+- Assignment
+
+x = 1
+y = 2
+
+let x = 1;
+let y = 2;
+
+
+
+- Functions
+
+subtract takes a b
+  return a - b
+
+function subtract(a,b) {
+  return a - b;
+}
+
+
+
+- Many-Param Functions
+
+add takes
+  a
+  b
+  c
+  then
+    return a + b + c
+
+function add(a,b,c) {
+  return a + b + c;
+}
+
+
+
+- Function Call
+
+result = add with x y 1
+
+let result = add(x, y, 1)
+
+console.log with
+  string Hello
+  string ${x} plus ${y} plus 1 is ${result}
+
+console.log(`Hello`, `${x} plus ${y} plus 1 is ${result}`)
+
+
+
+- If conditions
+
+if a == 1
+  then
+    console.log with
+      string OK
+
+if (a == 1) {
+  console.log(`OK`)
+}
+
+if a and b and
+  c or d
+  then
+    console.log with
+      string OK
+
+if ((a && b) && (c || d)) {
+  console.log(`OK`)
+}
+
+if not a > 0
+  console.log with
+    string a is zero or negative
+
+if (!(a > 0)) {
+  console.log(`a is zero or negative`)  
+}
+
+
+
+- TODO
+- Loops
+
+for x from 0 to 9
+  console.log with x
+
+...
+
+for x = 0 until x == 10
+  console.log with x
+  increment x
+
+...
+
+for x = 0 while x < 10
+  x += 1
+  console.log with x
+
+...
+
+for each item in array
+
+for (let item of array)
+
+while x < array.length
+  x++
+
+while (x < array.length) {
+  x++
+}
+
+until x is array.length
+  x++
+
+while (!(x == array.length)) {
+  x++
+}
+
+
+- TODO
+- String format
+
+string Hello $first-name
+
+`Hello ${firstName}`
+
+string That will be $$5.
+
+`That will be $5`
+
+
+- TODO
+- Array accessor
+
+array[0]
+
+array at 0
+
+
+
+- TODO
+- Compile-time computation
+- Things that only need to be done once at runtime
+e.g. Convert array of shapes to paths
+
+
+// jsx
+//
+//   component View with style = this.styles.view
+//     component Text
+//       string Hello world
+//
+//   component View with
+//     style = object
+//       margin 10
+//       color string red
+//     name = this.state.name
+//     contains
+//       component Text
+//         string Hello world
+
+// objects
+//   employee object
+//     firstName string Joe
+//     lastName string Smith
+//     tagline string
+//       Hello World
+//     description
+//       string
+//         Lorem ipsum dolor
+//         Lorem ipsum dolor
+//     age 30
+//     birthday
+//       day 1
+//       month 1
+//       year 1987
+
+// arrow functions
+//   sum = (a,b) => a + b
+//   sum = (a,b) => {
+//     return a + b
+//   }
+//
+//   sum = function takes a b
+//     return a + b
+
+// chained calls
+//   array.map(x => x + 1).map(  ).length
+//
+//   array.map with
+//     function maps x to x + 1
+//   ..map with
+//     function maps x to x + 2
+//   ..length
+
+// empty return
+//   return none
+
+// call with no params
+//   count()
+//
+//   count call
+
+// class definition
+//   View class extends BaseView
+
+// static
+//
+//   static function add(a,b)
+//   static add takes a b
+//
+//   static var x = 1
+//   static x 1
+
+// constants
+//
+//   constant x = 10
