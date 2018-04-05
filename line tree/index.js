@@ -10,10 +10,6 @@ function build(code) {
     var indent = lspaces.length / 2
     line = line.trim()
 
-    if (line.length == 0) {
-      continue
-    }
-
     const lastItemIn = array => array[array.length - 1]
     const currentIndent = () => stack.length - 1
     const currentNode = () => lastItemIn(stack)

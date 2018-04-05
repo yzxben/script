@@ -8,6 +8,9 @@ class AssignNode extends BaseNode {
   }
 
   static isit(line) {
+    if (typeof line == "string") {
+      return false
+    }
     return line.tokens[1] == "="
   }
 

@@ -2,6 +2,19 @@ const { BaseNode } = require("./base")
 const { Line } = require("../../line")
 const { brace } = require("./utils")
 
+const FunctionEmitter = (node, syntax) => {
+  const { name, params, content } = syntax
+
+  const signature = `${name}(${params.join(", ")})`
+
+  if (node.descendsFrom(ClassNode)) {
+    return brace(signature, content.emit())
+  }
+
+  return brace(`function ${signature}`, content.emit())
+
+}
+
 class FunctionNode extends BaseNode {
   constructor(parent, line) {
     super(parent)
@@ -9,6 +22,9 @@ class FunctionNode extends BaseNode {
   }
 
   static isit(line) {
+    if (typeof line == "string") {
+      return false
+    }
     return line.tokens[1] == "takes" && line.tokens.length > 2
   }
 
@@ -22,15 +38,8 @@ class FunctionNode extends BaseNode {
   }
 
   emit() {
-    const { name, params, content } = this.syntax
-    const signature = `${name}(${params.join(", ")})`
-
-    if (this.descendsFrom(ClassNode)) {
-      return brace(signature, content.emit())
-    }
-
-    return brace(`function ${signature}`, content.emit())
+    return FunctionEmitter(this, this.syntax)
   }
 }
 
-module.exports = { FunctionNode }
+module.exports = { FunctionNode, FunctionEmitter }

@@ -1,14 +1,18 @@
 const { BaseNode } = require("./base")
 const { Line } = require("../../line")
 
-class LiteralNode extends BaseNode {
+class BlankNode extends BaseNode {
   constructor(parent, line) {
     super(parent)
     this.line = line
   }
 
   static isit(line) {
-    return false
+    if (typeof line == "string") {
+      return false
+    }
+    
+    return line.line == ""
   }
 
   get syntax() {
@@ -16,8 +20,8 @@ class LiteralNode extends BaseNode {
   }
 
   emit() {
-    return ``
+    return [Line(``)]
   }
 }
 
-module.exports = { LiteralNode }
+module.exports = { BlankNode }

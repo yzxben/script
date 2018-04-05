@@ -11,6 +11,7 @@ const transpile = input => {
 const input = `
 a = 1
 b = 2
+
 add takes x y
   c = 3
   subtract takes z w
@@ -18,7 +19,14 @@ add takes x y
     multiply takes j k
       e = 5
   f = 6
-g = 7
+
+multiply takes
+  a
+  b
+  c
+  then
+    return a * b * c
+
 Test class
   divide takes p q
     h = 8

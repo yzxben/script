@@ -1,9 +1,16 @@
 module.exports = Object.assign(
   {},
   require("./assign.js"),
+  require("./return.js"),
+  require("./blank.js"),
   require("./function.js"),
   require("./functionmultilineparam.js"),
-  require("./literal.js"),
+  require("./inline/literal.js"),
+  require("./inline/expression.js"),
+  require("./inline/variable.js"),
   require("./program.js"),
   require("./class.js"),
+  require("./inline/expression.js"),
+  require("./inline/literal.js"),
+  require("./inline/variable.js"),
 )

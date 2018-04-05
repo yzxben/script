@@ -8,6 +8,10 @@ class TemplateNode extends BaseNode {
   }
 
   static isit(line) {
+    if (typeof line == "string") {
+      return false
+    }
+    
     return false
   }
 

@@ -14,12 +14,12 @@ class Program extends BaseNode {
   get nodes() {
     return this.lines.map(line => {
       for (let [key, node] of Object.entries(nodes)) {
-        if (node.isit(line)) {
+        if (node.isit && node.isit(line)) {
           return new node(this, line)
         }
       }
 
-      throw new Error(`Node not found for: ${line.line}`)
+      throw new Error(`Node not found for: "${line}"`)
     })
   }
 
