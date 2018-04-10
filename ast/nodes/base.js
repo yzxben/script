@@ -25,6 +25,20 @@ class BaseNode {
     }
     return false
   }
+
+  descendsDirectlyFrom(other) {
+    let ancestor = this.parent
+    while (ancestor !== null) {
+      if (ancestor instanceof Program) {
+        ancestor = ancestor.parent
+      } else if (ancestor instanceof other) {
+        return true
+      } else {
+        return false
+      }
+    }
+    return false
+  }
 }
 
 module.exports = { BaseNode }

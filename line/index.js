@@ -57,4 +57,6 @@ class Line_ {
 
 const Line = (line, children) => new Line_(line, children)
 
-module.exports = { Line }
+const isLine = object => object instanceof Line_
+
+module.exports = { Line, isLine }

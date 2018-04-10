@@ -7,12 +7,11 @@ const FunctionEmitter = (node, syntax) => {
 
   const signature = `${name}(${params.join(", ")})`
 
-  if (node.descendsFrom(ClassNode)) {
+  if (node.descendsDirectlyFrom(ClassNode)) {
     return brace(signature, content.emit())
   }
 
   return brace(`function ${signature}`, content.emit())
-
 }
 
 class FunctionNode extends BaseNode {
